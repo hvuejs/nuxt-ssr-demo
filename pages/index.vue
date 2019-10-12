@@ -4,7 +4,7 @@
       <el-container style="height: 100%;">
         <el-aside style="width: auto;height: 100%;">
             <div class="home-aside">
-                  <div class="home-aside-navs" style="width: 152px;">
+                  <div class="home-aside-navs" id='home-navs'>
                       <div><img src="../assets/image/icon/logo.png" alt="" /></div>
                     <ul ref='domNavData'> 
                         <li v-for="(val,i) in navMenuList" :key='i' :data-name='val.indexofurl' @click='handleNav(val)' :class="{'li-active': classIndex == val.indexofurl}">
@@ -247,6 +247,7 @@ html {
   height: 100%;
  
 .home {
+  overflow: hidden;
   height: 100vh;
   background-color: #f9f9f9;
   .home-aside {
@@ -260,6 +261,7 @@ html {
           vertical-align: middle;
       }
       &-navs {
+          width: 152px;
           background-color: #21242C;
           color: #BFBFC1;
           position: relative;
@@ -412,5 +414,27 @@ html {
   }
 }
 }
+
+@media (max-width: 1200px) {
+     .home-aside > #home-navs {
+         width: 50px;
+         overflow: hidden;
+         >div {
+             img {
+                margin-left: 5px;
+             }
+         }
+         ul {
+             li {
+                 i {
+                    margin-right: 0;
+                 }
+                 span {
+                    display: none;
+                 }
+             }
+         }
+     }
+ }
 
 </style>
